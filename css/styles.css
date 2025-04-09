@@ -3725,6 +3725,38 @@ textarea.form-control-lg {
   display: block;
 }
 
+@media (max-width: 991.98px) {
+  .navbar-brand {
+    width: 100%;
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .navbar-brand img {
+    max-width: 250px;
+    height: auto;
+    margin-left: 10px;
+    margin-bottom: 20px;
+  }
+
+  .navbar-toggler {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .navbar-nav {
+    text-align: center;
+    width: 100%;
+    align-items: center;
+  }
+
+  .navbar-nav .nav-link {
+    width: 100%;
+  }
+}
+
 .navbar {
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0.5rem;

@@ -180,8 +180,71 @@
                         </p>
                     </div>
                 </div>
+        
+                <div class="mt-4">
+                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#scheduleModal">
+                        Schedule Service
+                    </button>
+                </div>
             </div>
         </section>
+        
+        <!-- Schedule Modal -->
+        <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-start">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="scheduleModalLabel">Schedule Service</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+        
+                <form id="serviceForm">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New Service Request from Website">
+                <input type="hidden" name="_template" value="table">
+        
+                <div id="form-content">
+                    <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" name="Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" name="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" name="Phone" pattern="[0-9]{10}" title="Enter a 10-digit phone number (123456789)" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Your Location</label>
+                        <textarea class="form-control" rows="3" name="Your Location" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Additional Details</label>
+                        <textarea class="form-control" rows="4" name="Message" required></textarea>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Send Request</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+  
+        <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+                <h5 class="mb-3">✅ Thank you for your request!</h5>
+                <p>We'll be in touch shortly to confirm your appointment.</p>
+                <button type="button" class="btn btn-success mt-3" data-bs-dismiss="modal">Continue</button>
+            </div>
+            </div>
+        </div>
 
         <section id="careers" class="py-5 text-center" style="background-color: rgb(207, 207, 207);">
             <div class="container">
@@ -229,21 +292,66 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const navbarCollapse = document.getElementById("navbarNav");
-        const navLinks = document.querySelectorAll(".nav-item a");
+            document.addEventListener("DOMContentLoaded", function () {
+                const navbarCollapse = document.getElementById("navbarNav");
+                const navLinks = document.querySelectorAll(".nav-item a");
 
-        navLinks.forEach(link => {
-            link.addEventListener("click", () => {
-                // Get the Bootstrap collapse instance
-                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                // If it exists and menu is open, close it
-                if (bsCollapse && navbarCollapse.classList.contains("show")) {
-                    bsCollapse.hide();
-                }
+                navLinks.forEach(link => {
+                    link.addEventListener("click", () => {
+                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                        if (bsCollapse && navbarCollapse.classList.contains("show")) {
+                            bsCollapse.hide();
+                        }
+                    });
+                });
             });
-        });
-    });
-    </script>
+        </script>
+
+        <script>
+            document.getElementById('serviceForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+        
+            const formData = {
+                Name: this.Name.value,
+                Email: this.Email.value,
+                Phone: this.Phone.value,
+                "Your Location": this["Your Location"].value,
+                Message: this.Message.value,
+                _captcha: "false",
+                _subject: "New Service Request from Website",
+                _template: "table"
+            };
+        
+            fetch('https://formsubmit.co/ajax/perfectautoglassmn@gmail.com', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            }).then(response => {
+                if (response.ok) {
+                const formModal = bootstrap.Modal.getInstance(document.getElementById('scheduleModal'));
+                formModal.hide(); 
+        
+                document.getElementById('serviceForm').reset();
+                const confirmModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+                confirmModal.show();
+                confirmModal._element.addEventListener('hidden.bs.modal', () => {
+                document.body.classList.remove('modal-open'); 
+                document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                });
+                } else {
+                alert("⚠️ There was an issue submitting the form. Please try again.");
+                }
+            }).catch(() => {
+                alert("⚠️ Network error. Please check your connection and try again.");
+            });
+            });
+        
+            document.getElementById('scheduleModal').addEventListener('hidden.bs.modal', function () {
+            document.getElementById('form-content').classList.remove('d-none');
+            });
+        </script>
     </body>
 </html>

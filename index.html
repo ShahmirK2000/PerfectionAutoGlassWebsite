@@ -180,8 +180,62 @@
                         </p>
                     </div>
                 </div>
+        
+                <!-- Schedule Service Button -->
+                <div class="mt-4">
+                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#scheduleModal">
+                        Schedule Service
+                    </button>
+                </div>
             </div>
         </section>
+        
+        <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-start">
+              <div class="modal-header">
+                <h5 class="modal-title" id="scheduleModalLabel">Schedule Service</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form id="serviceForm">
+                <div id="form-content">
+                  <div class="modal-body">
+                    <div class="mb-3">
+                      <label for="name" class="form-label">Full Name</label>
+                      <input type="text" class="form-control" name="Name" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Email Address</label>
+                      <input type="email" class="form-control" name="Email" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="phone" class="form-label">Phone Number</label>
+                      <input type="tel" class="form-control" name="Phone" pattern="[0-9]{10}" title="Enter a 10-digit phone number (123456789)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Your Location</label>
+                        <textarea class="form-control" rows="3" name="Your Location" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="message" class="form-label">Additional Details</label>
+                      <textarea class="form-control" rows="4" name="Message" required></textarea>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Send Request</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  </div>
+                </div>
+              
+                <div id="thank-you" class="text-center d-none p-4">
+                  <h5 class="mb-3">✅ Thank you for your request!</h5>
+                  <p>We'll be in touch shortly to confirm your appointment.</p>
+                  <button type="button" class="btn btn-success mt-3" data-bs-dismiss="modal">Continue</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
 
         <section id="careers" class="py-5 text-center" style="background-color: rgb(207, 207, 207);">
             <div class="container">
@@ -235,15 +289,40 @@
 
         navLinks.forEach(link => {
             link.addEventListener("click", () => {
-                // Get the Bootstrap collapse instance
                 const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                // If it exists and menu is open, close it
                 if (bsCollapse && navbarCollapse.classList.contains("show")) {
                     bsCollapse.hide();
                 }
             });
         });
     });
+    </script>
+
+    <script>
+        document.getElementById('serviceForm').addEventListener('submit', function (e) {
+            e.preventDefault(); 
+            fetch('https://formsubmit.co/ajax/perfectautoglassmn@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    Name: this.Name.value,
+                    Email: this.Email.value,
+                    Phone: this.Phone.value,
+                    "Your Location": this["Your Location"].value,
+                    Message: this.Message.value
+                })
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('form-content').classList.add('d-none');
+                    document.getElementById('thank-you').classList.remove('d-none');
+                } else {
+                    alert("There was an issue submitting the form. Please try again.");
+                }
+            });
+        });
     </script>
     </body>
 </html>

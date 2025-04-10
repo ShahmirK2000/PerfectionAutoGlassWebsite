@@ -196,7 +196,13 @@
                 <h5 class="modal-title" id="scheduleModalLabel">Schedule Service</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <form id="serviceForm">
+              
+                <form action="https://formsubmit.co/perfectautoglassmn@gmail.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New Service Request from Website">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://perfectionautoglass.org/#formSuccess">
+
                 <div id="form-content">
                   <div class="modal-body">
                     <div class="mb-3">
@@ -323,6 +329,24 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        // If redirected after form submission
+        if (window.location.hash === "#formSuccess") {
+            const modal = new bootstrap.Modal(document.getElementById('scheduleModal'));
+            modal.show();
+            document.getElementById('form-content').classList.add('d-none');
+            document.getElementById('thank-you').classList.remove('d-none');
+        }
+    
+        // Reset modal on close
+        document.getElementById('scheduleModal').addEventListener('hidden.bs.modal', function () {
+            document.getElementById('form-content').classList.remove('d-none');
+            document.getElementById('thank-you').classList.add('d-none');
+        });
+    });
     </script>
     </body>
 </html>

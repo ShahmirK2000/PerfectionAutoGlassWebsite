@@ -9,6 +9,9 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+
+        <!-- Cloudflare Turnstile (INLINE CAPTCHA) -->
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     </head>
 
     <body>
@@ -200,7 +203,7 @@
                 </div>
         
             <form id="serviceForm" action="https://formsubmit.co/perfectautoglassmn@gmail.com" method="POST">               
-                <input type="hidden" name="_captcha" value="false">
+                <!-- removed _captcha=false (we're using inline Turnstile instead) -->
                 <input type="hidden" name="_subject" value="New Service Request from Website">
                 <input type="hidden" name="_template" value="table">
         
@@ -226,6 +229,12 @@
                         <label for="message" class="form-label">Additional Details</label>
                         <textarea class="form-control" rows="4" name="Message" required></textarea>
                     </div>
+
+                    <!-- INLINE CAPTCHA (Turnstile) -->
+                    <div class="mb-3">
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAACYJvQsxuc9zb4Wf"></div>
+                    </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Send Request</button>
@@ -309,49 +318,85 @@
         </script>
 
         <script>
-            document.getElementById('serviceForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-        
-            const formData = {
-                Name: this.Name.value,
-                Email: this.Email.value,
-                Phone: this.Phone.value,
-                "Your Location": this["Your Location"].value,
-                Message: this.Message.value,
-                _captcha: "false",
-                _subject: "New Service Request from Website",
-                _template: "table"
-            };
-        
-            fetch('https://formsubmit.co/ajax/perfectautoglassmn@gmail.com', {
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            }).then(response => {
-                if (response.ok) {
-                const formModal = bootstrap.Modal.getInstance(document.getElementById('scheduleModal'));
-                formModal.hide(); 
-        
-                document.getElementById('serviceForm').reset();
-                const confirmModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-                confirmModal.show();
-                confirmModal._element.addEventListener('hidden.bs.modal', () => {
-                document.body.classList.remove('modal-open'); 
-                document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
-                });
-                } else {
-                alert("⚠️ There was an issue submitting the form. Please try again.");
+            document.getElementById('serviceForm').addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const submitBtn = this.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+
+                try {
+                    // Turnstile injects a hidden input named "cf-turnstile-response"
+                    const tokenInput = this.querySelector('input[name="cf-turnstile-response"]');
+                    const token = tokenInput ? tokenInput.value : "";
+
+                    if (!token) {
+                        alert("⚠️ Please complete the captcha before submitting.");
+                        submitBtn.disabled = false;
+                        return;
+                    }
+
+                    const verifyRes = await fetch("https://perfectionworker-adminpanel.perfectautoglassmn.workers.dev/verify-turnstile", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ token })
+                    });
+
+                    const verifyJson = await verifyRes.json();
+
+                    if (!verifyRes.ok || !verifyJson.success) {
+                        alert("⚠️ Captcha verification failed. Please try again.");
+                        if (window.turnstile) window.turnstile.reset();
+                        submitBtn.disabled = false;
+                        return;
+                    }
+
+                    const formData = {
+                        Name: this.Name.value,
+                        Email: this.Email.value,
+                        Phone: this.Phone.value,
+                        "Your Location": this["Your Location"].value,
+                        Message: this.Message.value,
+                        _subject: "New Service Request from Website",
+                        _template: "table"
+                    };
+
+                    const response = await fetch('https://formsubmit.co/ajax/perfectautoglassmn@gmail.com', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    if (response.ok) {
+                        const formModal = bootstrap.Modal.getInstance(document.getElementById('scheduleModal'));
+                        formModal.hide();
+
+                        document.getElementById('serviceForm').reset();
+
+                        const confirmModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+                        confirmModal.show();
+                        confirmModal._element.addEventListener('hidden.bs.modal', () => {
+                            document.body.classList.remove('modal-open');
+                            document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                        });
+
+                        if (window.turnstile) window.turnstile.reset();
+                    } else {
+                        alert("⚠️ There was an issue submitting the form. Please try again.");
+                        if (window.turnstile) window.turnstile.reset();
+                    }
+                } catch (err) {
+                    alert("⚠️ Network error. Please check your connection and try again.");
+                    if (window.turnstile) window.turnstile.reset();
+                } finally {
+                    submitBtn.disabled = false;
                 }
-            }).catch(() => {
-                alert("⚠️ Network error. Please check your connection and try again.");
             });
-            });
-        
+
             document.getElementById('scheduleModal').addEventListener('hidden.bs.modal', function () {
-            document.getElementById('form-content').classList.remove('d-none');
+                document.getElementById('form-content').classList.remove('d-none');
             });
         </script>
     </body>

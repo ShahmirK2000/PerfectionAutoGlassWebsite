@@ -450,6 +450,7 @@
           const data = await api("/login", { password });
           token = data.token;
           sessionStorage.setItem("pag_admin_token", token);
+          document.getElementById("password").value = "";
           setStatus("");
           loginCard.style.display = "none";
           invoiceCard.style.display = "block";
@@ -463,6 +464,8 @@
       document.getElementById("logoutBtn").addEventListener("click", () => {
         token = "";
         sessionStorage.removeItem("pag_admin_token");
+
+        document.getElementById("password").value = "";
         resetInvoiceForm();           // added
         setCreateMode("create");      // added
         invoiceCard.style.display = "none";

@@ -4,33 +4,278 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin - Perfection Auto Glass</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --pag-accent: #ff6a00;
+        --pag-accent-2: #ffb100;
+        --pag-ink: #0f172a;
+        --pag-muted: #64748b;
+        --pag-surface: rgba(255, 255, 255, 0.9);
+        --pag-border: rgba(15, 23, 42, 0.08);
+      }
+
+      body {
+        color: var(--pag-ink);
+        background:
+          radial-gradient(1200px 600px at 15% -10%, rgba(255, 106, 0, 0.18), transparent 55%),
+          radial-gradient(900px 500px at 85% 0%, rgba(255, 177, 0, 0.18), transparent 55%),
+          linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+      }
+
+      .pag-shell {
+        max-width: 880px;
+      }
+
+      .pag-topbar {
+        border: 1px solid var(--pag-border);
+        background: linear-gradient(
+          90deg,
+          rgba(255, 106, 0, 0.10),
+          rgba(255, 177, 0, 0.08)
+        );
+        border-radius: 18px;
+        padding: 18px 18px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+        backdrop-filter: blur(10px);
+      }
+
+      .pag-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .pag-logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--pag-accent), var(--pag-accent-2));
+        box-shadow: 0 10px 22px rgba(255, 106, 0, 0.25);
+        display: grid;
+        place-items: center;
+        flex: 0 0 auto;
+      }
+
+      .pag-logo svg {
+        width: 24px;
+        height: 24px;
+        fill: white;
+        opacity: 0.95;
+      }
+
+      .pag-title {
+        line-height: 1.1;
+      }
+      .pag-title h1 {
+        font-size: 1.1rem;
+        margin: 0;
+        letter-spacing: -0.02em;
+        font-weight: 700;
+      }
+      .pag-title p {
+        margin: 0.15rem 0 0 0;
+        color: var(--pag-muted);
+        font-size: 0.9rem;
+      }
+
+      .card {
+        border-radius: 18px;
+        border: 1px solid var(--pag-border) !important;
+        background: var(--pag-surface) !important;
+        backdrop-filter: blur(10px);
+      }
+
+      .card-body {
+        padding: 22px;
+      }
+
+      .form-label {
+        font-weight: 600;
+        color: #334155;
+      }
+
+      .form-control,
+      .form-select {
+        border-radius: 12px;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        padding: 0.7rem 0.85rem;
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        border-color: rgba(255, 106, 0, 0.55);
+        box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.15);
+      }
+
+      .btn {
+        border-radius: 12px;
+        padding: 0.6rem 0.9rem;
+        font-weight: 600;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--pag-accent), var(--pag-accent-2));
+        border: none;
+        box-shadow: 0 10px 22px rgba(255, 106, 0, 0.22);
+      }
+      .btn-primary:hover {
+        filter: brightness(0.98);
+      }
+
+      .btn-success {
+        background: linear-gradient(135deg, #16a34a, #22c55e);
+        border: none;
+        box-shadow: 0 10px 22px rgba(34, 197, 94, 0.18);
+      }
+
+      .btn-outline-secondary {
+        border-color: rgba(15, 23, 42, 0.18);
+      }
+
+      .pag-section-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .pag-section-title h2 {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .pag-help {
+        color: var(--pag-muted);
+        font-size: 0.92rem;
+        margin-bottom: 18px;
+      }
+
+      .pag-status {
+        font-size: 0.95rem;
+        color: var(--pag-muted);
+      }
+
+      .pag-divider {
+        border-top: 1px solid rgba(15, 23, 42, 0.08);
+        margin: 18px 0;
+      }
+
+      .pag-result {
+        border: 1px solid rgba(15, 23, 42, 0.10);
+        background: rgba(255, 255, 255, 0.65);
+        border-radius: 16px;
+        padding: 16px;
+      }
+
+      .input-group .form-control {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .input-group .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      .alert {
+        border-radius: 14px;
+        border: 1px solid rgba(220, 38, 38, 0.18);
+      }
+
+      .pag-footnote {
+        color: var(--pag-muted);
+        font-size: 0.85rem;
+        margin-top: 14px;
+      }
+
+      /* Small screen tweaks */
+      @media (max-width: 576px) {
+        .card-body {
+          padding: 18px;
+        }
+      }
+    </style>
   </head>
 
   <body class="bg-light">
-    <div class="container py-5" style="max-width: 720px;">
-      <h1 class="h3 mb-4">Admin Panel</h1>
+    <div class="container py-5 pag-shell">
+      <!-- Top header -->
+      <div class="pag-topbar mb-4">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+          <div class="pag-brand">
+            <div class="pag-logo" aria-hidden="true">
+              <!-- simple shield icon -->
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4zm3.7 8.3a1 1 0 10-1.4-1.4L11 12.2 9.7 10.9a1 1 0 10-1.4 1.4l2 2a1 1 0 001.4 0l4-4z"
+                />
+              </svg>
+            </div>
+            <div class="pag-title">
+              <h1>Perfection Auto Glass — Admin</h1>
+              <p>Create an invoice link and send it to the customer.</p>
+            </div>
+          </div>
+
+          <div class="text-end">
+            <span id="status" class="pag-status"></span>
+          </div>
+        </div>
+      </div>
 
       <!-- Login -->
       <div id="loginCard" class="card shadow-sm mb-4">
         <div class="card-body">
-          <h2 class="h5 mb-3">Sign in</h2>
-          <div class="mb-3">
-            <label class="form-label">Admin password</label>
-            <input id="password" type="password" class="form-control" autocomplete="current-password" />
+          <div class="pag-section-title">
+            <h2>Sign in</h2>
           </div>
-          <button id="loginBtn" class="btn btn-primary">Login</button>
+          <p class="pag-help mb-3">
+            Enter the admin password to access invoice generation.
+          </p>
+
+          <div class="row g-3 align-items-end">
+            <div class="col-12 col-md-8">
+              <label class="form-label">Admin password</label>
+              <input
+                id="password"
+                type="password"
+                class="form-control"
+                autocomplete="current-password"
+                placeholder="••••••••"
+              />
+            </div>
+            <div class="col-12 col-md-4 d-grid">
+              <button id="loginBtn" class="btn btn-primary">
+                Login
+              </button>
+            </div>
+          </div>
+
           <div id="loginMsg" class="text-danger mt-3" style="display:none;"></div>
+          <div class="pag-footnote">
+            Tip: Your login stays active for this browser session.
+          </div>
         </div>
       </div>
 
       <!-- Invoice form -->
       <div id="invoiceCard" class="card shadow-sm" style="display:none;">
         <div class="card-body">
-          <div class="d-flex justify-content-between align-items-center">
-            <h2 class="h5 mb-3">Invoice details</h2>
+          <div class="pag-section-title">
+            <h2>Invoice details</h2>
             <button id="logoutBtn" class="btn btn-outline-secondary btn-sm">Logout</button>
           </div>
+
+          <p class="pag-help">
+            Fill out the details below. We’ll generate a secure payment link you can copy and text to the customer.
+          </p>
 
           <div class="row g-3">
             <div class="col-md-6">
@@ -44,7 +289,10 @@
 
             <div class="col-md-4">
               <label class="form-label">Amount</label>
-              <input id="amount" type="number" step="0.01" min="0" class="form-control" placeholder="299.99" />
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input id="amount" type="number" step="0.01" min="0" class="form-control" placeholder="299.99" />
+              </div>
             </div>
             <div class="col-md-4">
               <label class="form-label">Currency</label>
@@ -59,30 +307,45 @@
 
             <div class="col-12">
               <label class="form-label">Notes</label>
-              <textarea id="notes" class="form-control" rows="3" placeholder="Windshield replacement quote for 2018 Camry..."></textarea>
+              <textarea
+                id="notes"
+                class="form-control"
+                rows="3"
+                placeholder="Windshield replacement quote for 2018 Camry..."
+              ></textarea>
             </div>
 
-            <div class="col-12">
-              <button id="createBtn" class="btn btn-success">Generate Pay Link</button>
-              <span id="status" class="ms-3 text-muted"></span>
+            <div class="col-12 d-flex align-items-center gap-3 flex-wrap">
+              <button id="createBtn" class="btn btn-success">
+                Generate Pay Link
+              </button>
+              <span class="pag-status">
+                Double-check email + amount before generating.
+              </span>
             </div>
           </div>
 
-          <hr class="my-4" />
+          <div class="pag-divider"></div>
 
           <div id="result" style="display:none;">
-            <div class="mb-2"><strong>Invoice link:</strong></div>
-            <div class="input-group mb-3">
-              <input id="invoiceUrl" class="form-control" readonly />
-              <button id="copyLinkBtn" class="btn btn-outline-primary">Copy</button>
-            </div>
+            <div class="pag-result">
+              <div class="mb-2"><strong>Invoice link</strong></div>
+              <div class="input-group mb-3">
+                <input id="invoiceUrl" class="form-control" readonly />
+                <button id="copyLinkBtn" class="btn btn-outline-primary">Copy</button>
+              </div>
 
-            <div class="mb-2"><strong>Text message:</strong></div>
-            <textarea id="smsText" class="form-control" rows="3" readonly></textarea>
-            <button id="copySmsBtn" class="btn btn-outline-primary mt-2">Copy message</button>
+              <div class="mb-2"><strong>Text message</strong></div>
+              <textarea id="smsText" class="form-control" rows="3" readonly></textarea>
+              <button id="copySmsBtn" class="btn btn-outline-primary mt-2">Copy message</button>
+            </div>
           </div>
 
           <div id="error" class="alert alert-danger mt-3" style="display:none;"></div>
+
+          <div class="pag-footnote">
+            Secure link generation is handled by your worker endpoint.
+          </div>
         </div>
       </div>
     </div>

@@ -287,8 +287,6 @@
               <input id="customerEmail" type="email" class="form-control" placeholder="john@email.com" />
             </div>
 
-            
-
             <div class="col-md-4">
               <label class="form-label">Amount</label>
               <div class="input-group">
@@ -406,6 +404,43 @@
         }
       }
 
+      // --- Added: reset + button mode helpers (minimal change) ---
+      function resetInvoiceForm() {
+        document.getElementById("customerName").value = "";
+        document.getElementById("customerEmail").value = "";
+        document.getElementById("amount").value = "";
+        document.getElementById("currency").value = "USD";
+        document.getElementById("itemName").value = "Auto glass service";
+        document.getElementById("notes").value = "";
+
+        document.getElementById("invoiceUrl").value = "";
+        document.getElementById("smsText").value = "";
+        resultEl.style.display = "none";
+        clearError();
+        setStatus("");
+      }
+
+      const createBtn = document.getElementById("createBtn");
+
+      function setCreateMode(mode) {
+        // mode: "create" | "new"
+        if (mode === "new") {
+          createBtn.textContent = "Generate New Invoice";
+          createBtn.classList.remove("btn-success");
+          createBtn.classList.add("btn-outline-secondary");
+          createBtn.dataset.mode = "new";
+        } else {
+          createBtn.textContent = "Generate Pay Link";
+          createBtn.classList.add("btn-success");
+          createBtn.classList.remove("btn-outline-secondary");
+          createBtn.dataset.mode = "create";
+        }
+      }
+
+      // Initial button state
+      setCreateMode("create");
+      // --- end added helpers ---
+
       document.getElementById("loginBtn").addEventListener("click", async () => {
         clearError();
         loginMsg.style.display = "none";
@@ -428,46 +463,60 @@
       document.getElementById("logoutBtn").addEventListener("click", () => {
         token = "";
         sessionStorage.removeItem("pag_admin_token");
+        resetInvoiceForm();           // added
+        setCreateMode("create");      // added
         invoiceCard.style.display = "none";
         loginCard.style.display = "block";
       });
 
-      document.getElementById("createBtn").addEventListener("click", async () => {
-        const btn = document.getElementById("createBtn");
-        if (btn.disabled) return;
-        btn.disabled = true;                
+      // Updated: same button, two behaviors depending on mode
+      createBtn.addEventListener("click", async () => {
+        // If we're in "new invoice" mode, confirm + reset
+        if (createBtn.dataset.mode === "new") {
+          const ok = window.confirm("All fields will be erased. Continue?");
+          if (!ok) return;
+          resetInvoiceForm();
+          setCreateMode("create");
+          return;
+        }
+
+        // Normal "Generate Pay Link"
+        if (createBtn.disabled) return;
+        createBtn.disabled = true;
 
         clearError();
         resultEl.style.display = "none";
         setStatus("Creating invoice...");
 
         try {
-            const payload = {
+          const payload = {
             customerName: document.getElementById("customerName").value.trim(),
             customerEmail: document.getElementById("customerEmail").value.trim(),
             amount: document.getElementById("amount").value,
             currency: document.getElementById("currency").value,
             itemName: document.getElementById("itemName").value.trim(),
             notes: document.getElementById("notes").value.trim()
-            };
+          };
 
-            const data = await api("/create-invoice", payload);
+          const data = await api("/create-invoice", payload);
 
-            document.getElementById("invoiceUrl").value = data.invoiceUrl;
+          document.getElementById("invoiceUrl").value = data.invoiceUrl;
 
-            const sms = `Perfection Auto Glass invoice: ${data.invoiceUrl}\n\nYou can pay securely online. If you have any questions, reply to this message.`;
-            document.getElementById("smsText").value = sms;
+          const sms = `Perfection Auto Glass invoice: ${data.invoiceUrl}\n\nYou can pay securely online. If you have any questions, reply to this message.`;
+          document.getElementById("smsText").value = sms;
 
-            resultEl.style.display = "block";
-            setStatus("Done.");
+          resultEl.style.display = "block";
+          setStatus("Done.");
+
+          // Switch to "Generate New Invoice" only after success
+          setCreateMode("new");
         } catch (e) {
-            setStatus("");
-            showError(e.message || "Failed to create invoice");
+          setStatus("");
+          showError(e.message || "Failed to create invoice");
         } finally {
-            btn.disabled = false; 
+          createBtn.disabled = false;
         }
-        });
-
+      });
 
       document.getElementById("copyLinkBtn").addEventListener("click", async () => {
         await navigator.clipboard.writeText(document.getElementById("invoiceUrl").value);

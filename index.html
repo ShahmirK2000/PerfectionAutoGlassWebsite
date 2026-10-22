@@ -2,301 +2,488 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Perfection Auto Glass - Windshield and Auto Glass Repair Services" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+        <meta name="description" content="Perfection Auto Glass - Windshield and Auto Glass Repair Services. Windshield repair, auto glass replacement, and mobile service for cars, trucks, and RVs across Minnesota." />
         <meta name="author" content="Perfection Auto Glass" />
-        <title>Perfection Auto Glass</title>
+        <meta name="theme-color" content="#161616" />
+        <title>Perfection Auto Glass | Windshield Repair &amp; Auto Glass Replacement in Minnesota</title>
+        <link rel="canonical" href="https://perfectionautoglass.org/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Perfection Auto Glass" />
+        <meta property="og:title" content="Perfection Auto Glass | Quality Auto Glass Repair &amp; Replacement" />
+        <meta property="og:description" content="Windshield repair, auto glass replacement, and mobile service for cars, trucks, and RVs across Minnesota." />
+        <meta property="og:url" content="https://perfectionautoglass.org/" />
+        <meta property="og:image" content="https://perfectionautoglass.org/assets/web/corvette.jpg" />
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/theme.css" rel="stylesheet" />
+        <link rel="preload" as="image" href="assets/web/corvette.jpg" fetchpriority="high" />
 
         <!-- Cloudflare Turnstile (INLINE CAPTCHA) -->
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     </head>
 
-    <body>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container px-5">
-                <a class="navbar-brand" href="#">
-                    <img src="assets/Perfection_Auto_Glass_Transparent.png" alt="Perfection Auto Glass Logo" height="50">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-lg-auto text-center text-lg-start">
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>                  
-                        <li class="nav-item"><a class="nav-link" href="#showcase">Our Work</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#location">Locations</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#careers">Careers</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
+    <body id="top">
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        <header class="site-header">
+            <nav class="navbar navbar-expand-lg navbar-dark site-nav" aria-label="Main">
+                <div class="wrap nav-wrap">
+                    <a class="navbar-brand" href="#top">
+                        <img src="assets/web/logo.png" alt="Perfection Auto Glass" width="400" height="131">
+                    </a>
+                    <button class="nav-toggle collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="nav-toggle-bar"></span>
+                        <span class="nav-toggle-bar"></span>
+                        <span class="nav-toggle-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-auto">
+                            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#showcase">Our Work</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#location">Locations</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#careers">Careers</a></li>
+                        </ul>
+                        <div class="nav-cta">
+                            <div class="dropdown phone-menu">
+                                <button class="nav-phone dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                    <i class="bi bi-telephone-fill" aria-hidden="true"></i> Call Us <i class="bi bi-chevron-down phone-caret" aria-hidden="true"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end phone-dropdown">
+                                    <li><a class="dropdown-item" href="tel:7638565900"><span class="pd-city">Zimmerman</span><span class="pd-num">763-856-5900</span></a></li>
+                                    <li><a class="dropdown-item" href="tel:7636398026"><span class="pd-city">St. Michael</span><span class="pd-num">763-639-8026</span></a></li>
+                                    <li><a class="dropdown-item" href="tel:3203649243"><span class="pd-city">Mora</span><span class="pd-num">320-364-9243</span></a></li>
+                                    <li><a class="dropdown-item" href="tel:2186254400"><span class="pd-city">Duluth</span><span class="pd-num">218-625-4400</span></a></li>
+                                </ul>
+                            </div>
+                            <button class="btn-pag btn-pag-sm" type="button" data-bs-toggle="modal" data-bs-target="#scheduleModal">Schedule Service</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main id="main">
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="wrap">
+                    <div class="hero-grid">
+                        <div class="hero-copy">
+                            <p class="eyebrow">Auto glass specialists &middot; Minnesota</p>
+                            <h1 class="hero-title" id="hero-title">Quality Auto Glass <em>Repair &amp; Replacement</em></h1>
+                            <p class="hero-rotator">
+                                Serving you with
+                                <span class="visually-hidden">precision, accuracy, perfection, finesse, and expertise</span>
+                                <span class="rotator" aria-hidden="true">
+                                    <span>precision</span>
+                                    <span>accuracy</span>
+                                    <span>perfection</span>
+                                    <span>finesse</span>
+                                    <span>expertise</span>
+                                </span>
+                            </p>
+                            <p class="hero-lede">Windshield chip and crack repair, complete auto glass replacement for every make and model, including trucks and RVs, plus mobile service at your location. We work with all insurance companies.</p>
+                            <div class="hero-actions">
+                                <button class="btn-pag btn-pag-lg" type="button" data-bs-toggle="modal" data-bs-target="#scheduleModal">
+                                    Schedule Service <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                                </button>
+                                <div class="dropdown phone-menu">
+                                    <button class="btn-pag-ghost btn-pag-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                        <i class="bi bi-telephone" aria-hidden="true"></i> Call a Location <i class="bi bi-chevron-down phone-caret" aria-hidden="true"></i>
+                                    </button>
+                                    <ul class="dropdown-menu phone-dropdown">
+                                        <li><a class="dropdown-item" href="tel:7638565900"><span class="pd-city">Zimmerman</span><span class="pd-num">763-856-5900</span></a></li>
+                                        <li><a class="dropdown-item" href="tel:7636398026"><span class="pd-city">St. Michael</span><span class="pd-num">763-639-8026</span></a></li>
+                                        <li><a class="dropdown-item" href="tel:3203649243"><span class="pd-city">Mora</span><span class="pd-num">320-364-9243</span></a></li>
+                                        <li><a class="dropdown-item" href="tel:2186254400"><span class="pd-city">Duluth</span><span class="pd-num">218-625-4400</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hero-media">
+                            <svg class="hero-swoosh" viewBox="0 0 600 500" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                                <ellipse class="swoosh-red" pathLength="1" cx="300" cy="260" rx="292" ry="170" transform="rotate(-9 300 260)" />
+                                <ellipse class="swoosh-silver" pathLength="1" cx="300" cy="250" rx="280" ry="190" transform="rotate(-9 300 250)" />
+                            </svg>
+                            <figure class="hero-frame glint">
+                                <img src="assets/web/corvette.jpg" alt="Black Corvette after a windshield replacement by Perfection Auto Glass" width="1000" height="1000" fetchpriority="high">
+                                <figcaption>Windshield replacement &middot; Corvette</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <ul class="hero-facts">
+                        <li><strong>20+ years</strong><span>of auto glass experience</span></li>
+                        <li><strong>All insurance</strong><span>companies accepted</span></li>
+                        <li><strong>Mobile</strong><span>service at your location</span></li>
+                        <li><strong>4 locations</strong><span>across Minnesota</span></li>
                     </ul>
                 </div>
-            </div>
-        </nav>
-        
-        <header class="bg-dark py-5 text-center text-white">
-            <div class="container">
-                <h1 class="display-5 fw-bold">Quality Auto Glass Repair & Replacement</h1>
-                <br>
-                <h3 class="display-7 text-center">Serving you with
-                    <span class="slidingVertical">
-                        <span>precision</span>
-                        <span>accuracy</span>
-                        <span>perfection</span>
-                        <span>finesse</span>
-                        <span>expertise</span>
-                    </span>
-                </p>
-            </div>
-        </header> 
+            </section>
 
-        <section id="services" class="py-5" style="background-color: rgb(207, 207, 207);">
-            <div class="container text-center">
-                <h2 class="fw-bolder">Our Services</h2>
-                <div class="row mt-4">
-                    <div class="col-md-4">
-                        <i class="bi bi-wrench text-primary display-4"></i>
-                        <h3>Windshield Repair</h3>
-                        <p>We fix chips and cracks before they become a major problem.</p>
+            <section id="services" class="section" aria-labelledby="services-title">
+                <div class="wrap services-grid">
+                    <div class="services-intro reveal">
+                        <p class="eyebrow">What we do</p>
+                        <h2 class="section-title" id="services-title">Our Services</h2>
+                        <p class="section-lede">From a small chip to a full RV windshield, we take care of the whole job, at one of our shops or wherever your vehicle is parked.</p>
+                        <button class="btn-pag" type="button" data-bs-toggle="modal" data-bs-target="#scheduleModal">
+                            Schedule Service <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                        </button>
                     </div>
-                    <div class="col-md-4">
-                        <i class="bi bi-car-front-fill text-primary display-4"></i>
-                        <h3>Auto Glass Replacement</h3>
-                        <p>With over 20 years of experience we provide complete glass replacement for all vehicle makes and models, including Trucks and RVs.</p>
+
+                    <ul class="service-list">
+                        <li class="service reveal" style="--d:0">
+                            <div class="service-top">
+                                <span class="service-icon"><i class="bi bi-wrench" aria-hidden="true"></i></span>
+                                <span class="service-num" aria-hidden="true">01</span>
+                            </div>
+                            <h3>Windshield Repair</h3>
+                            <p>We fix chips and cracks before they become a major problem.</p>
+                        </li>
+                        <li class="service reveal" style="--d:1">
+                            <div class="service-top">
+                                <span class="service-icon"><i class="bi bi-car-front-fill" aria-hidden="true"></i></span>
+                                <span class="service-num" aria-hidden="true">02</span>
+                            </div>
+                            <h3>Auto Glass Replacement</h3>
+                            <p>With over 20 years of experience we provide complete glass replacement for all vehicle makes and models, including trucks and RVs.</p>
+                        </li>
+                        <li class="service reveal" style="--d:2">
+                            <div class="service-top">
+                                <span class="service-icon"><i class="bi bi-truck" aria-hidden="true"></i></span>
+                                <span class="service-num" aria-hidden="true">03</span>
+                            </div>
+                            <h3>Mobile Service</h3>
+                            <p>We come to you! All of your auto glass needs, taken care of at your location.</p>
+                        </li>
+                        <li class="service reveal" style="--d:3">
+                            <div class="service-top">
+                                <span class="service-icon"><i class="bi bi-shield-check" aria-hidden="true"></i></span>
+                                <span class="service-num" aria-hidden="true">04</span>
+                            </div>
+                            <h3>Insurance</h3>
+                            <p>We work with all insurance companies to ensure that our customers get the full benefits of their policy.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="showcase" class="section section-mist" aria-labelledby="showcase-title">
+                <div class="wrap">
+                    <div class="section-head reveal">
+                        <div>
+                            <p class="eyebrow">Recent jobs</p>
+                            <h2 class="section-title" id="showcase-title">Our Work</h2>
+                        </div>
+                        <p class="section-lede">Check out some of our successful repairs and replacements.</p>
                     </div>
-                    <div class="col-md-4">
-                        <i class="bi bi-house text-primary display-4"></i>
-                        <h3>Mobile Service</h3>
-                        <p>We come to you! All of your auto glass needs at your location.</p>
+
+                    <div class="work-grid">
+                        <figure class="work-card work-feature reveal">
+                            <div class="ba">
+                                <div class="work-media">
+                                    <img src="assets/web/rv-before.jpg" alt="RV with its front windshield removed, before replacement" width="1400" height="1050" loading="lazy" decoding="async">
+                                    <span class="ba-tag">Before</span>
+                                </div>
+                                <div class="work-media">
+                                    <img src="assets/web/rv-after.jpg" alt="The same RV with its new windshield installed" width="1400" height="1050" loading="lazy" decoding="async">
+                                    <span class="ba-tag ba-tag-after">After</span>
+                                </div>
+                            </div>
+                            <figcaption>
+                                <span class="work-type">Full Auto Glass Replacement</span>
+                                <span class="work-vehicle">RV</span>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="work-card reveal" style="--d:0">
+                            <div class="work-media">
+                                <img class="focus-top" src="assets/web/corvette.jpg" alt="Black Corvette with a replaced windshield" width="1000" height="1000" loading="lazy" decoding="async">
+                            </div>
+                            <figcaption>
+                                <span class="work-type">Windshield Replacement</span>
+                                <span class="work-vehicle">Corvette</span>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="work-card reveal" style="--d:1">
+                            <div class="work-media">
+                                <img src="assets/web/jeep.jpg" alt="White Jeep Grand Cherokee after a windshield repair" width="1400" height="1050" loading="lazy" decoding="async">
+                            </div>
+                            <figcaption>
+                                <span class="work-type">Windshield Repair</span>
+                                <span class="work-vehicle">Jeep</span>
+                            </figcaption>
+                        </figure>
                     </div>
                 </div>
-                <div class="row mt-4 justify-content-center">
-                    <div class="col-md-4">
-                        <i class="bi bi-shield-check text-primary display-4"></i>
-                        <h3>Insurance</h3>
-                        <p>We work with all insurance companies to ensure that our customers get the full benefits of their policy!</p>
+            </section>
+
+            <section id="testimonials" class="section section-dark" aria-labelledby="testimonials-title">
+                <div class="wrap">
+                    <div class="section-head reveal">
+                        <div>
+                            <p class="eyebrow">Reviews</p>
+                            <h2 class="section-title" id="testimonials-title">Customer Testimonials</h2>
+                        </div>
+                        <p class="section-lede">See what our satisfied customers have to say.</p>
+                    </div>
+
+                    <div class="quotes">
+                        <figure class="quote reveal" style="--d:0">
+                            <span class="quote-mark" aria-hidden="true">&#8220;</span>
+                            <blockquote>
+                                <p>They did a great job on my 2013 F350 again! I have used Perfection Auto Glass for years and continue to do so even though I have moved out of the area I still come back to use their great service! They also did a great job cleaning up my dash and adjacent interior area. Thanks again guys!</p>
+                            </blockquote>
+                            <figcaption><span class="quote-avatar" aria-hidden="true">RC</span>Rick Crestik</figcaption>
+                        </figure>
+                        <figure class="quote reveal" style="--d:1">
+                            <span class="quote-mark" aria-hidden="true">&#8220;</span>
+                            <blockquote>
+                                <p>Very great to work with. I'm particularly fussy about my cars and the staff at perfection took the time and got everything to where it should be. The install is show car worthy.</p>
+                            </blockquote>
+                            <figcaption><span class="quote-avatar" aria-hidden="true">JM</span>Jeremy Montoya</figcaption>
+                        </figure>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="showcase" class="py-5 text-center">
-            <div class="container">
-                <h2 class="fw-bolder">Our Work</h2>
-                <h4>Check out some of our successful repairs and replacements!</h4>
-                <div class="row mt-4">
-                    <div class="col-md-4">
-                        <p class="mt-2"><strong>Windshield Replacement - Corvette</strong></p>
-                        <img src="assets/Corvette.jpg" class="img-fluid rounded" alt="Before and After 1">
+            <section id="location" class="section" aria-labelledby="location-title">
+                <div class="wrap">
+                    <div class="section-head reveal">
+                        <div>
+                            <p class="eyebrow">Where we work</p>
+                            <h2 class="section-title" id="location-title">Our Locations</h2>
+                        </div>
+                        <p class="section-lede">We service all over Minnesota! Contact us to see if we are available in your area, or to schedule a mobile appointment.</p>
                     </div>
-                    <div class="col-md-4">
-                        <p class="mt-2"><strong>Windshield Repair - Jeep</strong></p>
-                        <img src="assets/Jeep.jpg" class="img-fluid rounded" alt="Before and After 2">
-                    </div>
-                    <div class="col-md-4">
-                        <p class="mt-2"><strong>Full Auto Glass Replacement - RV</strong></p>
-                        <img src="assets/RV1.jpg" class="img-fluid rounded" alt="Before">
-                        <img src="assets/RV2.jpg" class="img-fluid rounded" alt="After">
+
+                    <ul class="locations">
+                        <li class="location reveal" style="--d:0">
+                            <h3>Zimmerman, MN</h3>
+                            <a class="location-phone" href="tel:7638565900"><i class="bi bi-telephone-fill" aria-hidden="true"></i> 763-856-5900</a>
+                            <a class="location-address" href="https://www.google.com/maps?q=26122+Main+St+Zimmerman+MN+55398" target="_blank" rel="noopener">
+                                <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                                <span>26122 Main St, Zimmerman, MN 55398<span class="visually-hidden"> (opens Google Maps in a new tab)</span></span>
+                            </a>
+                        </li>
+                        <li class="location reveal" style="--d:1">
+                            <h3>St. Michael, MN</h3>
+                            <a class="location-phone" href="tel:7636398026"><i class="bi bi-telephone-fill" aria-hidden="true"></i> 763-639-8026</a>
+                            <a class="location-address" href="https://www.google.com/maps?q=5620+Quam+Ave+St+Michael+MN+55376" target="_blank" rel="noopener">
+                                <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                                <span>5620 Quam Ave, St. Michael, MN 55376<span class="visually-hidden"> (opens Google Maps in a new tab)</span></span>
+                            </a>
+                        </li>
+                        <li class="location reveal" style="--d:2">
+                            <h3>Mora, MN</h3>
+                            <a class="location-phone" href="tel:3203649243"><i class="bi bi-telephone-fill" aria-hidden="true"></i> 320-364-9243</a>
+                            <a class="location-address" href="https://www.google.com/maps?q=PO+Box+114+Mora+MN+55051" target="_blank" rel="noopener">
+                                <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                                <span>PO Box: 114, Mora, MN 55051<span class="visually-hidden"> (opens Google Maps in a new tab)</span></span>
+                            </a>
+                        </li>
+                        <li class="location reveal" style="--d:3">
+                            <h3>Duluth, MN</h3>
+                            <a class="location-phone" href="tel:2186254400"><i class="bi bi-telephone-fill" aria-hidden="true"></i> 218-625-4400</a>
+                            <a class="location-address" href="https://www.google.com/maps?q=2994+MN+23+Duluth+MN+55806" target="_blank" rel="noopener">
+                                <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                                <span>2994 MN 23, Duluth, MN 55806<span class="visually-hidden"> (opens Google Maps in a new tab)</span></span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="mobile-band reveal">
+                        <p><i class="bi bi-truck" aria-hidden="true"></i> Mobile appointments available all over Minnesota.</p>
+                        <button class="btn-pag" type="button" data-bs-toggle="modal" data-bs-target="#scheduleModal">
+                            Schedule Service <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="testimonials" class="py-5 text-center" style="background-color: rgb(207, 207, 207);">
-            <div class="container">
-                <h2 class="fw-bolder">Customer Testimonials</h2>
-                <h4 class="mb-4">See what our satisfied customers have to say!</h4>
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <blockquote class="blockquote">
-                            <p class="fs-5">
-                                <span style="color: blue; font-size: 3rem; line-height: 1; vertical-align: middle; margin-right: 0.5rem;">&#8220;</span>
-                                They did a great job on my 2013 F350 again! I have used Perfection Auto Glass for years and continue to do so even though I have moved out of the area I still come back to use their great service! They also did a great job cleaning up my dash and adjacent interior area. Thanks again guys!
-                                <span style="color: blue; font-size: 3rem; line-height: 1; vertical-align: middle; margin-left: 0.5rem;">&#8221;</span>
+            <section id="contact" class="section section-dark" aria-labelledby="contact-title">
+                <div class="wrap contact-grid">
+                    <div class="reveal">
+                        <p class="eyebrow">Get in touch</p>
+                        <h2 class="section-title" id="contact-title">Contact Us</h2>
+                        <p class="section-lede">Get in touch with us for any questions or to schedule a service at the closest location near you.</p>
+                        <div class="contact-actions">
+                            <button class="btn-pag" type="button" data-bs-toggle="modal" data-bs-target="#scheduleModal">
+                                Schedule Service <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                            </button>
+                            <a class="btn-pag-ghost" href="mailto:perfectautoglassmn@gmail.com">
+                                <i class="bi bi-envelope" aria-hidden="true"></i> Email Us
+                            </a>
+                        </div>
+                    </div>
+
+                    <ul class="contact-list reveal" style="--d:1">
+                        <li>
+                            <a href="tel:7638565900"><i class="bi bi-telephone-fill" aria-hidden="true"></i> 763-856-5900</a>
+                            <span>26122 Main St Zimmerman, MN, 55398</span>
+                        </li>
+                        <li>
+                            <a href="tel:7636398026"><i class="bi bi-telephone-fill" aria-hidden="true"></i> 763-639-8026</a>
+                            <span>5620 Quam Ave St Michael, MN, 55376</span>
+                        </li>
+                        <li>
+                            <a href="tel:3203649243"><i class="bi bi-telephone-fill" aria-hidden="true"></i> 320-364-9243</a>
+                            <span>PO Box: 114 Mora, MN, 55051</span>
+                        </li>
+                        <li>
+                            <a href="tel:2186254400"><i class="bi bi-telephone-fill" aria-hidden="true"></i> 218-625-4400</a>
+                            <span>2994 MN 23 Duluth, MN, 55806</span>
+                        </li>
+                        <li class="contact-email-row">
+                            <span class="contact-email"><a href="mailto:perfectautoglassmn@gmail.com"><i class="bi bi-envelope-fill" aria-hidden="true"></i> perfectautoglassmn@gmail.com</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="careers" class="section section-mist" aria-labelledby="careers-title">
+                <div class="wrap">
+                    <div class="careers reveal">
+                        <div>
+                            <p class="eyebrow">Join the team</p>
+                            <h2 class="section-title" id="careers-title">Careers</h2>
+                            <p class="section-lede">
+                                We are always looking for talented technicians! Send a Resume/CV and a Cover Letter to
+                                <a href="mailto:perfectautoglassmn@gmail.com">perfectautoglassmn@gmail.com</a>.
                             </p>
-                            <footer class="blockquote-footer">Rick Crestik</footer>
-                        </blockquote>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <blockquote class="blockquote">
-                            <p class="fs-5">
-                                <span style="color: blue; font-size: 3rem; line-height: 1; vertical-align: middle; margin-right: 0.5rem;">&#8220;</span>
-                                Very great to work with. I'm particularly fussy about my cars and the staff at perfection took the time and got everything to where it should be. The install is show car worthy.
-                                <span style="color: blue; font-size: 3rem; line-height: 1; vertical-align: middle; margin-left: 0.5rem;">&#8221;</span>
-                            </p>
-                            <footer class="blockquote-footer">Jeremy Montoya</footer>
-                        </blockquote>
+                        </div>
+                        <a class="btn-pag-outline" href="mailto:perfectautoglassmn@gmail.com">
+                            <i class="bi bi-envelope" aria-hidden="true"></i> Email your resume
+                        </a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
-        <section id="location" class="py-5 text-center">
-            <div class="container">
-                <h2 class="fw-bolder">Our Locations</h2>
-                <div class="row align-items-center mt-4">
-                    <h4>We service all over Minnesota!</h4>
-                    <h5>Contact us to see if we are available in your area, or to schedule a mobile appointment.</h5>
-                </div>
-        
-                <div class="row mt-4">
-                    <div class="col-md-6 mb-3">
-                        <h5 class="fw-bold">Zimmerman, MN</h5>
-                        <p><i class="bi bi-telephone-fill"></i> 
-                            <a href="tel:7638565900" class="text-blue text-decoration-none">763-856-5900</a><br>
-                            <a href="https://www.google.com/maps?q=26122+Main+St+Zimmerman+MN+55398" class="text-decoration-none" target="_blank">
-                                26122 Main St, Zimmerman, MN 55398
-                            </a>
-                        </p>
-                    </div>
-        
-                    <div class="col-md-6 mb-3">
-                        <h5 class="fw-bold">St. Michael, MN</h5>
-                        <p><i class="bi bi-telephone-fill"></i> 
-                            <a href="tel:7636398026" class="text-blue text-decoration-none">763-639-8026</a><br>
-                            <a href="https://www.google.com/maps?q=5620+Quam+Ave+St+Michael+MN+55376" class="text-decoration-none" target="_blank">
-                                5620 Quam Ave, St. Michael, MN 55376
-                            </a>
-                        </p>
-                    </div>
-        
-                    <div class="col-md-6 mb-3">
-                        <h5 class="fw-bold">Mora, MN</h5>
-                        <p><i class="bi bi-telephone-fill"></i> 
-                            <a href="tel:3203649243" class="text-blue text-decoration-none">320-364-9243</a><br>
-                            <a href="https://www.google.com/maps?q=PO+Box+114+Mora+MN+55051" class="text-decoration-none" target="_blank">
-                                PO Box: 114, Mora, MN 55051
-                            </a>
-                        </p>
-                    </div>
-        
-                    <div class="col-md-6 mb-3">
-                        <h5 class="fw-bold">Duluth, MN</h5>
-                        <p><i class="bi bi-telephone-fill"></i> 
-                            <a href="tel:2186254400" class="text-blue text-decoration-none">218-625-4400</a><br>
-                            <a href="https://www.google.com/maps?q=2994+MN+23+Duluth+MN+55806" class="text-decoration-none" target="_blank">
-                                2994 MN 23, Duluth, MN 55806
-                            </a>
-                        </p>
-                    </div>
-                </div>
-        
-                <div class="mt-4">
-                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#scheduleModal">
-                        Schedule Service
-                    </button>
-                </div>
-            </div>
-        </section>
-        
         <!-- Schedule Modal -->
         <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content text-start">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="scheduleModalLabel">Schedule Service</h5>
+                    <div>
+                        <h2 class="modal-title" id="scheduleModalLabel">Schedule Service</h2>
+                        <p class="modal-subtitle">Tell us about your vehicle and we'll be in touch to confirm your appointment.</p>
+                    </div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-        
-            <form id="serviceForm" action="https://formsubmit.co/perfectautoglassmn@gmail.com" method="POST">               
+
+            <form id="serviceForm" action="https://formsubmit.co/perfectautoglassmn@gmail.com" method="POST">
                 <!-- removed _captcha=false (we're using inline Turnstile instead) -->
                 <input type="hidden" name="_subject" value="New Service Request from Website">
                 <input type="hidden" name="_template" value="table">
-        
+
                 <div id="form-content">
                     <div class="modal-body">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" name="Name" required>
+                        <label for="sf-name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="sf-name" name="Name" autocomplete="name" required>
+                    </div>
+                    <div class="row g-3 mb-3">
+                        <div class="col-sm-6">
+                            <label for="sf-email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="sf-email" name="Email" autocomplete="email" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="sf-phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="sf-phone" name="Phone" autocomplete="tel" inputmode="numeric" pattern="[0-9]{10}" title="Enter a 10-digit phone number (1234567890)" aria-describedby="sf-phone-hint" required>
+                            <p class="form-hint" id="sf-phone-hint">10 digits, numbers only</p>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" name="Email" required>
+                        <label for="sf-location" class="form-label">Your Location</label>
+                        <textarea class="form-control" id="sf-location" rows="2" name="Your Location" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" name="Phone" pattern="[0-9]{10}" title="Enter a 10-digit phone number (1234567890)" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Your Location</label>
-                        <textarea class="form-control" rows="3" name="Your Location" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Additional Details</label>
-                        <textarea class="form-control" rows="4" name="Message" required></textarea>
+                        <label for="sf-message" class="form-label">Additional Details</label>
+                        <textarea class="form-control" id="sf-message" rows="4" name="Message" placeholder="Year, make and model, and what happened to the glass" required></textarea>
                     </div>
 
                     <!-- INLINE CAPTCHA (Turnstile) -->
-                    <div class="mb-3">
+                    <div class="mb-1">
                         <div class="cf-turnstile" data-sitekey="0x4AAAAAACYJvQsxuc9zb4Wf"></div>
                     </div>
 
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Send Request</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn-pag-outline" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn-pag">Send Request</button>
                     </div>
                 </div>
                 </form>
             </div>
             </div>
         </div>
-  
+
         <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-center p-4">
-                <h5 class="mb-3">✅ Thank you for your request!</h5>
+            <div class="modal-content text-center p-4 p-sm-5">
+                <span class="confirm-icon" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+                <h2 class="confirm-title" id="confirmationModalLabel">Thank you for your request!</h2>
                 <p>We'll be in touch shortly to confirm your appointment.</p>
-                <button type="button" class="btn btn-success mt-3" data-bs-dismiss="modal">Continue</button>
+                <div class="mt-4">
+                    <button type="button" class="btn-pag" data-bs-dismiss="modal">Continue</button>
+                </div>
             </div>
             </div>
         </div>
 
-        <section id="careers" class="py-5 text-center" style="background-color: rgb(207, 207, 207);">
-            <div class="container">
-                <h2 class="fw-bolder">Careers</h2>
-                <h4>We are always looking for talented technicians!</h4>
-                <p>
-                    Send a Resume/CV and a Cover Letter to 
-                    <a href="mailto:perfectautoglassmn@gmail.com">perfectautoglassmn@gmail.com</a> 
-                </p>
-            </div>
-        </section>
-
-        <section id="contact" class="py-5 text-center bg-dark text-white">
-            <div class="container">
-                <h2 class="fw-bolder">Contact Us</h2>
-                <p>Get in touch with us for any questions or to schedule a service at the closest location near you.</p>
-                
-                <p><i class="bi bi-telephone-fill"></i> 
-                    <a href="tel:7638565900" class="text-blue text-decoration-none">763-856-5900</a> - <strong>26122 Main St Zimmerman, MN, 55398</strong>
-                </p>
-        
-                <p><i class="bi bi-telephone-fill"></i> 
-                    <a href="tel:7636398026" class="text-blue text-decoration-none">763-639-8026</a> - <strong>5620 Quam Ave St Michael, MN, 55376</strong>
-                </p>
-        
-                <p><i class="bi bi-telephone-fill"></i> 
-                    <a href="tel:3203649243" class="text-blue text-decoration-none">320-364-9243</a> - <strong>PO Box: 114 Mora, MN, 55051</strong>
-                </p>
-        
-                <p><i class="bi bi-telephone-fill"></i> 
-                    <a href="tel:2186254400" class="text-blue text-decoration-none">218-625-4400</a> - <strong>2994 MN 23 Duluth, MN, 55806</strong>
-                </p>
-                
-                <p><i class="bi bi-envelope-fill"></i> 
-                    <a href="mailto:perfectautoglassmn@gmail.com" class="text-blue text-decoration-none">perfectautoglassmn@gmail.com</a>
-                </p>
-            </div>
-        </section>
-
-        <footer class="py-4 bg-dark text-center text-white">
-            <div class="container">
-                <p class="m-0">&copy; 2026 Perfection Auto Glass. All rights reserved.</p>
+        <footer class="site-footer">
+            <div class="wrap">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <img src="assets/web/logo.png" alt="Perfection Auto Glass" width="400" height="131" loading="lazy">
+                        <p>Quality auto glass repair and replacement, serving customers all over Minnesota.</p>
+                    </div>
+                    <div>
+                        <h2>Explore</h2>
+                        <ul class="footer-links">
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#showcase">Our Work</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="#location">Locations</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Services</h2>
+                        <ul class="footer-links">
+                            <li><a href="#services">Windshield Repair</a></li>
+                            <li><a href="#services">Auto Glass Replacement</a></li>
+                            <li><a href="#services">Mobile Service</a></li>
+                            <li><a href="#services">Insurance</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Reach us</h2>
+                        <ul class="footer-links">
+                            <li><a href="tel:7638565900"><i class="bi bi-telephone-fill" aria-hidden="true"></i>763-856-5900</a></li>
+                            <li><a href="mailto:perfectautoglassmn@gmail.com"><i class="bi bi-envelope-fill" aria-hidden="true"></i>perfectautoglassmn@gmail.com</a></li>
+                            <li><a href="#location"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i>All locations</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="m-0">&copy; 2026 Perfection Auto Glass. All rights reserved.</p>
+                    <nav aria-label="Footer">
+                        <a href="#top">Back to top</a>
+                        <a href="admin.html">Admin</a>
+                    </nav>
+                </div>
             </div>
         </footer>
 
@@ -304,16 +491,71 @@
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const navbarCollapse = document.getElementById("navbarNav");
-                const navLinks = document.querySelectorAll(".nav-item a");
+                const navLinks = document.querySelectorAll(".nav-item a, .nav-cta a, .nav-cta [data-bs-toggle='modal']");
+                const closeMenu = () => {
+                    if (navbarCollapse.classList.contains("show")) {
+                        bootstrap.Collapse.getOrCreateInstance(navbarCollapse, { toggle: false }).hide();
+                    }
+                };
 
-                navLinks.forEach(link => {
-                    link.addEventListener("click", () => {
-                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                        if (bsCollapse && navbarCollapse.classList.contains("show")) {
-                            bsCollapse.hide();
+                navLinks.forEach(link => link.addEventListener("click", e => {
+                    const hash = link.getAttribute("href");
+                    const target = hash && hash.startsWith("#") && document.querySelector(hash);
+                    // The open mobile menu pushes the page down; scroll only after it collapses
+                    if (target && navbarCollapse.classList.contains("show")) {
+                        e.preventDefault();
+                        navbarCollapse.addEventListener("hidden.bs.collapse", () => {
+                            target.scrollIntoView();
+                            history.pushState(null, "", hash);
+                        }, { once: true });
+                    }
+                    closeMenu();
+                }));
+
+                // Close the mobile menu when tapping anywhere outside the header, or pressing Escape
+                document.addEventListener("pointerdown", e => {
+                    if (!e.target.closest(".site-header")) closeMenu();
+                });
+                document.addEventListener("keydown", e => {
+                    if (e.key === "Escape") closeMenu();
+                });
+
+                // Sticky header state
+                const header = document.querySelector(".site-header");
+                const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+                onScroll();
+                window.addEventListener("scroll", onScroll, { passive: true });
+
+                if (!("IntersectionObserver" in window)) return;
+
+                // Highlight the nav link for the section in view
+                const linkFor = {};
+                document.querySelectorAll(".site-nav .nav-link[href^='#']").forEach(a => {
+                    linkFor[a.getAttribute("href").slice(1)] = a;
+                });
+                const sectionObserver = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        const link = linkFor[entry.target.id];
+                        if (link) link.classList.toggle("is-active", entry.isIntersecting);
+                    });
+                }, { rootMargin: "-45% 0px -50% 0px" });
+                Object.keys(linkFor).forEach(id => {
+                    const section = document.getElementById(id);
+                    if (section) sectionObserver.observe(section);
+                });
+
+                // Fade-and-rise reveals (skipped for reduced motion; content is visible without JS)
+                if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+                document.documentElement.classList.add("js-reveal");
+                const revealObserver = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            revealObserver.unobserve(entry.target);
                         }
                     });
-                });
+                }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+                document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
             });
         </script>
 
@@ -398,6 +640,40 @@
             document.getElementById('scheduleModal').addEventListener('hidden.bs.modal', function () {
                 document.getElementById('form-content').classList.remove('d-none');
             });
+
+            // Keep the schedule modal sized to the visible area when the mobile keyboard opens
+            (function () {
+                const modal = document.getElementById('scheduleModal');
+                const vv = window.visualViewport;
+
+                function syncViewport() {
+                    if (!vv) return;
+                    modal.style.setProperty('--vvh', vv.height + 'px');
+                    modal.style.setProperty('--vvt', vv.offsetTop + 'px');
+                }
+
+                if (vv) {
+                    modal.addEventListener('show.bs.modal', function () {
+                        syncViewport();
+                        vv.addEventListener('resize', syncViewport);
+                        vv.addEventListener('scroll', syncViewport);
+                    });
+                    modal.addEventListener('hidden.bs.modal', function () {
+                        vv.removeEventListener('resize', syncViewport);
+                        vv.removeEventListener('scroll', syncViewport);
+                        modal.style.removeProperty('--vvh');
+                        modal.style.removeProperty('--vvt');
+                    });
+                }
+
+                // Once the keyboard has finished opening, bring the focused field into view
+                modal.addEventListener('focusin', function (e) {
+                    if (!e.target.matches('input, textarea, select')) return;
+                    setTimeout(function () {
+                        e.target.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                    }, 300);
+                });
+            })();
         </script>
     </body>
 </html>

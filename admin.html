@@ -4,27 +4,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin - Perfection Auto Glass</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
 
     <style>
       :root {
-        --pag-accent: #ff6a00;
-        --pag-accent-2: #ffb100;
-        --pag-ink: #0f172a;
-        --pag-muted: #64748b;
-        --pag-surface: rgba(255, 255, 255, 0.9);
-        --pag-border: rgba(15, 23, 42, 0.08);
+        --pag-red: #c32b2a;
+        --pag-red-700: #9f2120;
+        --pag-ink: #161616;
+        --pag-muted: #5d5b5b;
+        --pag-surface: #ffffff;
+        --pag-border: #dcdad8;
       }
 
       body {
+        font-family: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
         color: var(--pag-ink);
         background:
-          radial-gradient(1200px 600px at 15% -10%, rgba(255, 106, 0, 0.18), transparent 55%),
-          radial-gradient(900px 500px at 85% 0%, rgba(255, 177, 0, 0.18), transparent 55%),
-          linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+          repeating-linear-gradient(115deg, rgba(22, 22, 22, 0.025) 0 1px, transparent 1px 22px),
+          #f2f1ef;
+        min-height: 100vh;
       }
 
       .pag-shell {
@@ -32,109 +38,136 @@
       }
 
       .pag-topbar {
-        border: 1px solid var(--pag-border);
-        background: linear-gradient(
-          90deg,
-          rgba(255, 106, 0, 0.10),
-          rgba(255, 177, 0, 0.08)
-        );
-        border-radius: 18px;
-        padding: 18px 18px;
-        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-        backdrop-filter: blur(10px);
+        background: var(--pag-ink);
+        color: #f5f4f2;
+        border-radius: 6px;
+        border-bottom: 3px solid var(--pag-red);
+        padding: 18px 22px;
+        box-shadow: 0 12px 30px rgba(22, 22, 22, 0.18);
       }
 
       .pag-brand {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 16px;
       }
 
       .pag-logo {
-        width: 44px;
         height: 44px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, var(--pag-accent), var(--pag-accent-2));
-        box-shadow: 0 10px 22px rgba(255, 106, 0, 0.25);
-        display: grid;
-        place-items: center;
+        width: auto;
         flex: 0 0 auto;
-      }
-
-      .pag-logo svg {
-        width: 24px;
-        height: 24px;
-        fill: white;
-        opacity: 0.95;
       }
 
       .pag-title {
         line-height: 1.1;
+        padding-left: 16px;
+        border-left: 1px solid rgba(255, 255, 255, 0.16);
       }
       .pag-title h1 {
-        font-size: 1.1rem;
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-size: 1.35rem;
         margin: 0;
-        letter-spacing: -0.02em;
         font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
       }
       .pag-title p {
-        margin: 0.15rem 0 0 0;
-        color: var(--pag-muted);
+        margin: 0.2rem 0 0 0;
+        color: #b9b6b4;
         font-size: 0.9rem;
       }
 
+      .pag-topbar .pag-status {
+        color: #b9b6b4;
+      }
+
       .card {
-        border-radius: 18px;
+        border-radius: 6px;
         border: 1px solid var(--pag-border) !important;
         background: var(--pag-surface) !important;
-        backdrop-filter: blur(10px);
+        box-shadow: 0 1px 2px rgba(22, 22, 22, 0.06), 0 2px 8px rgba(22, 22, 22, 0.05) !important;
       }
 
       .card-body {
-        padding: 22px;
+        padding: 26px;
       }
 
       .form-label {
         font-weight: 600;
-        color: #334155;
+        color: var(--pag-ink);
       }
 
       .form-control,
-      .form-select {
-        border-radius: 12px;
-        border: 1px solid rgba(15, 23, 42, 0.12);
+      .form-select,
+      .input-group-text {
+        border-radius: 4px;
+        border: 1px solid #cfccca;
         padding: 0.7rem 0.85rem;
       }
 
       .form-control:focus,
       .form-select:focus {
-        border-color: rgba(255, 106, 0, 0.55);
-        box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.15);
+        border-color: var(--pag-red);
+        box-shadow: 0 0 0 0.2rem rgba(195, 43, 42, 0.16);
       }
 
       .btn {
-        border-radius: 12px;
-        padding: 0.6rem 0.9rem;
+        border-radius: 4px;
+        padding: 0.65rem 1rem;
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
         font-weight: 600;
+        font-size: 1.05rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
       }
 
-      .btn-primary {
-        background: linear-gradient(135deg, var(--pag-accent), var(--pag-accent-2));
-        border: none;
-        box-shadow: 0 10px 22px rgba(255, 106, 0, 0.22);
-      }
-      .btn-primary:hover {
-        filter: brightness(0.98);
-      }
-
+      .btn-primary,
       .btn-success {
-        background: linear-gradient(135deg, #16a34a, #22c55e);
-        border: none;
-        box-shadow: 0 10px 22px rgba(34, 197, 94, 0.18);
+        background: var(--pag-red);
+        border: 1px solid var(--pag-red);
+        color: #fff;
+        box-shadow: 0 6px 18px rgba(195, 43, 42, 0.24);
+      }
+      .btn-primary:hover,
+      .btn-primary:focus-visible,
+      .btn-success:hover,
+      .btn-success:focus-visible {
+        background: var(--pag-red-700);
+        border-color: var(--pag-red-700);
+        color: #fff;
+      }
+      .btn-primary:disabled,
+      .btn-success:disabled {
+        background: var(--pag-red);
+        border-color: var(--pag-red);
+        opacity: 0.6;
       }
 
       .btn-outline-secondary {
-        border-color: rgba(15, 23, 42, 0.18);
+        color: var(--pag-ink);
+        border-color: #a9a6a4;
+      }
+      .btn-outline-secondary:hover {
+        background: var(--pag-ink);
+        border-color: var(--pag-ink);
+        color: #fff;
+      }
+
+      .btn-outline-primary {
+        color: var(--pag-red);
+        border-color: var(--pag-red);
+      }
+      .btn-outline-primary:hover,
+      .btn-outline-primary:active {
+        background: var(--pag-red);
+        border-color: var(--pag-red);
+        color: #fff;
+      }
+
+      .btn:focus-visible {
+        outline: 3px solid #ef6a61;
+        outline-offset: 2px;
+        box-shadow: none;
       }
 
       .pag-section-title {
@@ -147,14 +180,24 @@
 
       .pag-section-title h2 {
         margin: 0;
-        font-size: 1.05rem;
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-size: 1.6rem;
         font-weight: 700;
-        letter-spacing: -0.01em;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .pag-section-title h2::before {
+        content: "";
+        width: 18px;
+        height: 4px;
+        background: var(--pag-red);
+        transform: skewX(-24deg);
       }
 
       .pag-help {
         color: var(--pag-muted);
-        font-size: 0.92rem;
+        font-size: 0.95rem;
         margin-bottom: 18px;
       }
 
@@ -164,15 +207,16 @@
       }
 
       .pag-divider {
-        border-top: 1px solid rgba(15, 23, 42, 0.08);
-        margin: 18px 0;
+        border-top: 1px solid var(--pag-border);
+        margin: 22px 0;
       }
 
       .pag-result {
-        border: 1px solid rgba(15, 23, 42, 0.10);
-        background: rgba(255, 255, 255, 0.65);
-        border-radius: 16px;
-        padding: 16px;
+        border: 1px solid var(--pag-border);
+        border-left: 4px solid var(--pag-red);
+        background: #f8f7f6;
+        border-radius: 6px;
+        padding: 18px;
       }
 
       .input-group .form-control {
@@ -183,43 +227,64 @@
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
+      .input-group .input-group-text {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        background: #f2f1ef;
+      }
+      .input-group .input-group-text + .form-control {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
 
       .alert {
-        border-radius: 14px;
-        border: 1px solid rgba(220, 38, 38, 0.18);
+        border-radius: 6px;
+        border: 1px solid rgba(195, 43, 42, 0.25);
       }
 
       .pag-footnote {
         color: var(--pag-muted);
         font-size: 0.85rem;
-        margin-top: 14px;
+        margin-top: 16px;
+      }
+
+      .pag-back {
+        color: var(--pag-muted);
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+      .pag-back:hover {
+        color: var(--pag-red);
       }
 
       /* Small screen tweaks */
       @media (max-width: 576px) {
         .card-body {
-          padding: 18px;
+          padding: 20px;
+        }
+        .pag-brand {
+          flex-wrap: wrap;
+        }
+        .pag-title {
+          padding-left: 0;
+          border-left: 0;
         }
       }
     </style>
   </head>
 
-  <body class="bg-light">
+  <body>
     <div class="container py-5 pag-shell">
+      <a class="pag-back d-inline-block mb-3" href="index.html">&larr; Back to website</a>
       <!-- Top header -->
       <div class="pag-topbar mb-4">
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
           <div class="pag-brand">
-            <div class="pag-logo" aria-hidden="true">
-              <!-- simple shield icon -->
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4zm3.7 8.3a1 1 0 10-1.4-1.4L11 12.2 9.7 10.9a1 1 0 10-1.4 1.4l2 2a1 1 0 001.4 0l4-4z"
-                />
-              </svg>
-            </div>
+            <img class="pag-logo" src="assets/web/logo.png" alt="Perfection Auto Glass" width="400" height="131" />
             <div class="pag-title">
-              <h1>Perfection Auto Glass — Admin</h1>
+              <h1>Admin</h1>
               <p>Create an invoice link and send it to the customer.</p>
             </div>
           </div>
@@ -242,7 +307,7 @@
 
           <div class="row g-3 align-items-end">
             <div class="col-12 col-md-8">
-              <label class="form-label">Admin password</label>
+              <label class="form-label" for="password">Admin password</label>
               <input
                 id="password"
                 type="password"
@@ -279,34 +344,34 @@
 
           <div class="row g-3">
             <div class="col-md-6">
-              <label class="form-label">Customer name</label>
+              <label class="form-label" for="customerName">Customer name</label>
               <input id="customerName" class="form-control" placeholder="John Smith" />
             </div>
             <div class="col-md-6">
-              <label class="form-label">Customer email</label>
+              <label class="form-label" for="customerEmail">Customer email</label>
               <input id="customerEmail" type="email" class="form-control" placeholder="john@email.com" />
             </div>
 
             <div class="col-md-4">
-              <label class="form-label">Amount</label>
+              <label class="form-label" for="amount">Amount</label>
               <div class="input-group">
                 <span class="input-group-text">$</span>
                 <input id="amount" type="number" step="0.01" min="0" class="form-control" placeholder="299.99" />
               </div>
             </div>
             <div class="col-md-4">
-              <label class="form-label">Currency</label>
+              <label class="form-label" for="currency">Currency</label>
               <select id="currency" class="form-select">
                 <option value="USD" selected>USD</option>
               </select>
             </div>
             <div class="col-md-4">
-              <label class="form-label">Item label</label>
+              <label class="form-label" for="itemName">Item label</label>
               <input id="itemName" class="form-control" placeholder="Auto glass service" value="Auto glass service" />
             </div>
 
             <div class="col-12">
-              <label class="form-label">Notes</label>
+              <label class="form-label" for="notes">Notes</label>
               <textarea
                 id="notes"
                 class="form-control"
